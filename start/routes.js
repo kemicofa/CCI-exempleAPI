@@ -16,6 +16,8 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
+
+//private routes
 Route.get('/getLists',"BaseController.getLists")
 .middleware('auth');
 Route.get('/getArticlesByListId',"BaseController.getArticlesByListId")
@@ -25,5 +27,7 @@ Route.post('/addProduct',"BaseController.addProduct")
 Route.post('/addList',"BaseController.addList")
 .middleware('auth');
 
+
+//public routes
 Route.post('/createUser','UserController.createUser');
-Route.get('/login','UserController.loginUser');
+Route.post('/login','UserController.loginUser');
